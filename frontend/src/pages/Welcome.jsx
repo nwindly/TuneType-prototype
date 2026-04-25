@@ -1,51 +1,68 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-
+import { useNavigate } from "react-router-dom";
 
 const Welcome = () => {
   const navigate = useNavigate();
 
   return (
-    <div 
-      className="min-h-screen flex flex-col items-center justify-center"
-      style={{
-        backgroundColor: "#fef9e7",
-        backgroundImage: `radial-gradient(circle at 10px 10px, #f6d365 5%, transparent 6%),
-                          radial-gradient(circle at 30px 30px, #f6d365 5%, transparent 6%)`,
-        backgroundSize: "40px 40px",
-      }}
+    <div
+      className="min-h-screen relative flex flex-col items-center justify-center 
+    p-8 pt-8 pb-28 overflow-hidden bg-amber-100 font-sans"
     >
-      {/* logo and title*/}
-      <div className="text-center mb-4">
-        <div className="text-center mb-8">
-          <img
-            src="/assets/tunetype-logo.png"
-            alt="TuneType Logo"
-            className="w-64 h-64 mx-auto"
-          />
-          <h1 className="text-3xl font-bold">T U N E T Y P E</h1>
-          <h2 className="text-2xl">LET'S GET STARTED</h2>
-        </div>
+      {/* Logo */}
+      <div className="mb-2 w-40 h-40 flex items-center justify-center">
+        <img
+          src="/assets/imgs/tunetype-logo.png"
+          alt="TuneType Logo"
+          className="w-full h-full object-cover"
+        />
       </div>
 
-      {/* buttons */}
-      <div className="flex flex-col items-center gap-4">
-        <button 
-          onClick={() => navigate('/homepage', {state: {isLoggedIn: false}})}
-          className="bg-yellow-200 border-4 border-black px-12 py-4 rounded-xl font-bold hover:bg-gray-300"
-        >
-          PLAY AS GUEST
-        </button>
-        
-        <h2 className="text-xl font-bold">OR</h2>
-        
-        <button 
-          onClick={() => navigate('/signup')}
-          className="bg-yellow-200 border-4 border-black px-12 py-4 rounded-xl font-bold hover:bg-gray-300"
-        >
-          SIGN UP / LOGIN
-        </button>
+      {/* Title */}
+      <h1 className="text-[clamp(2.6rem,8vw,4.2rem)] text-gray-900 tracking-widest leading-none mb-1 font-bold">
+        TUNETYPE
+      </h1>
+
+      {/* Subtitle */}
+      <div className="flex flex-col items-center mb-9 mt-5">
+        <p className="font-extrabold text-[clamp(0.75rem,2.5vw,1rem)] tracking-widest uppercase">
+          JAPANESE TYPING GAME
+        </p>
+        <p className="font-bold text-[clamp(0.75rem,2.5vw,1rem)] tracking-widest mt-1">
+          日本語タイピングゲーム
+        </p>
       </div>
+
+      {/* CTA buttons */}
+      <button
+        className="w-full max-w-xs px-6 py-3 border-4 border-gray-900 rounded-xl 
+        text-xl tracking-wide bg-amber-400 text-gray-900 mb-4 
+        transition-colors hover:bg-amber-500 active:translate-y-1 active:shadow-none"
+        onClick={() => navigate("/homepage")}
+      >
+        Play as Guest
+      </button>
+
+      <div className="flex items-center gap-3 w-full max-w-xs my-2 text-gray-900 font-extrabold text-sm tracking-widest">
+        <div className="flex-1 h-0.5 bg-gray-900 rounded"></div>
+        OR
+        <div className="flex-1 h-0.5 bg-gray-900 rounded"></div>
+      </div>
+
+      <button
+        className="relative w-full max-w-xs px-6 py-3 border-4 border-gray-900 rounded-xl 
+        text-xl tracking-wide bg-red-500 text-white  transition-colors
+         hover:bg-red-600 active:translate-y-1 active:shadow-none"
+        onClick={() => navigate("/signup")}
+      >
+        Sign Up / Login
+      </button>
+
+      {/* Cat mascot */}
+      <img
+        src="/assets/imgs/cat-animation-transparent.gif"
+        alt="Cat mascot"
+        className="fixed bottom-0 right-0 pointer-events-none w-[clamp(120px,22vw,220px)]"
+      />
     </div>
   );
 };
